@@ -1,0 +1,153 @@
+/*BG and LOGO*/
+#motor {
+	position: relative;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+	width: 30%;  
+  } 
+
+  body {
+	font-family: 'Cormorant Infant', serif;
+	background-repeat: no-repeat;
+	background-position: absolute;
+	background-size: 170%;
+}
+
+/*HEADINGS*/
+h1 {
+  font-size: 38px;
+  color: white;
+	text-align: center;
+	font-family: 'Cormorant Infant', serif;
+	text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: 24px;
+    color:white;
+    text-align: center;
+    font-family: 'Cormorant Infant', serif;
+    text-transform: uppercase;
+    }
+
+/*GALLERY*/
+.simple-gallery-wrapper{
+	display: block;
+}
+
+.simple-gallery{
+	width: 100%;
+	max-width: 800px;
+	position: relative;
+	display: block;
+	margin: 0 auto !important;
+}
+
+.simple-gallery .controlls{
+	height: 100%;
+	position: absolute;
+	top:0px;
+	z-index: 999;
+}
+.simple-gallery .controlls.prev{
+	left:0px;
+}
+.simple-gallery .controlls.next{
+	right:0px;	
+}
+.simple-gallery .controlls button{
+	position: relative;
+	top:calc(50% - 25px);
+
+	display: block;
+	width: 50px;
+	height: 50px;
+	border: 0px;
+	margin: 5px;
+
+	border-radius: 100px;
+	background-color: rgba(255, 255, 255, 0.9);
+	outline: 0px;
+
+	font-size: 20px;
+	font-weight: 900;
+	color: rgba(0, 0, 0, 0.9);;
+}
+
+.simple-gallery .pager{
+	position: absolute;
+	bottom: 10px;
+	z-index: 999;
+	display: block;
+	width: 100%;
+}
+
+.simple-gallery .pager ul{
+	list-style: none;
+	margin: 0px auto;
+	padding: 0px;
+	text-align: center;
+}
+
+.simple-gallery .pager ul li{
+	display: inline-block;
+}
+
+.simple-gallery .pager ul li button,
+.simple-gallery .pager ul li button:focus {
+	display: block;
+	width: 15px;
+	height: 15px;
+	border: 0px;
+	margin: 5px 10px;
+	border-radius: 100px;
+	background-color: rgba(255, 255, 255, 0.5);
+	outline: 0px;
+}
+
+.simple-gallery .pager ul li.active button{
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.simple-gallery img{
+	width: 100%;
+	margin: 0px auto;
+}
+
+.simple-gallery ul.slides{
+	padding: 0px;
+	overflow: hidden;
+	position:relative;
+}
+
+.simple-gallery ul.slides li{
+	position: absolute;
+  	left: 0;
+  	top: 0;
+  	width: 100%;
+  	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	opacity: 0;
+
+	-webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.simple-gallery ul.slides li.skeleton{
+	position: relative;
+	width: 100%;
+	max-height: 700px;
+	visibility: hidden;
+	font-size: 0px;
+	line-height: 0;
+}
+
+.simple-gallery ul.slides li.active{
+	z-index: 100;
+	opacity: 1;
+
+	-webkit-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+}

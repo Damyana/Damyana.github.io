@@ -1,0 +1,129 @@
+/*BG and LOGO*/
+#motor {
+      position: relative;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      width: 30%;  
+      } 
+
+      body {
+        font-family: 'Cormorant Infant', serif;
+        background-repeat: no-repeat;
+        background-position: absolute;
+        background-size: 170%;
+      }
+
+/*HEADING*/     
+  h1 {
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Cormorant Infant', serif;
+    text-transform: uppercase;
+    color: white;
+    }
+
+/*PROMO*/
+    .badge {
+      font-family: oswald, sans-serif;
+      font-size: 42px;
+      transform: rotate(45deg);
+      margin: 50px auto;
+      background: red;
+      width: 120px;
+      height: 120px;
+      line-height: 120px;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 8px;
+      color: #FFFFFF;
+      text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    }
+    .badge span {
+      display: block;
+      transform: rotate(-45deg);
+      opacity: .9;
+    }
+    
+/*Keyframes animation*/
+    .bounceInLeft {
+        -webkit-animation-name: bounceInLeft;
+        animation-name: bounceInLeft;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        }
+        @-webkit-keyframes bounceInLeft {
+        0%, 60%, 75%, 90%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+        0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-3000px, 0, 0);
+        transform: translate3d(-3000px, 0, 0);
+        }
+        60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0);
+        transform: translate3d(25px, 0, 0);
+        }
+        75% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+        }
+        90% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0);
+        }
+        100% {
+        -webkit-transform: none;
+        transform: none;
+        }
+        }
+        @keyframes bounceInLeft {
+        0%, 60%, 75%, 90%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+        0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-3000px, 0, 0);
+        transform: translate3d(-3000px, 0, 0);
+        }
+        60% {
+        opacity: 1;
+        -webkit-transform: translate3d(25px, 0, 0);
+        transform: translate3d(25px, 0, 0);
+        }
+        75% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+        }
+        90% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0);
+        }
+        100% {
+        -webkit-transform: none;
+        transform: none;
+        }
+        } 
+
+/*FLASH*/
+div.polaroid {
+  width: 40%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  position:center;
+  margin: 40px 400px;
+}
+
+/*Container text*/
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+  position:center;
+}

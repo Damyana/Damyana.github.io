@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Галерия</title>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Cormorant+Infant:600i|El+Messiri|Lobster|Marck+Script|Pacifico" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/stylemenu.css">
+  <link rel="stylesheet" href="css/stylegalery.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<!--MENU-->
+<body>
+		<img src="Images/logo.png" alt="logo" id="motor" />
+		<ul class="menu">
+		  <li><a href="index.html">Начало</a> </li>
+		  <li><a href="about.html">За фирмата</a></li>
+		  <li><a href="catalog.html">Каталог</a></li>
+		  <li><a href="promo.html">Промоция</a></li>
+		  <li><a href="galery.html">Галерия</a></li>
+		  <li><a href="me.html">Автор</a></li>
+		  <li><a href="contacts.html">Контакти</a></li>
+		  <li class="slider"></li> 
+		  </ul>
+		  </div>
+
+<!--BACKGROUND-->
+      <body background="Images/fire.jpg"></body>
+      
+<!--GALLERY-->
+ <body>
+		<div class="simple-gallery-wrapper">
+			<div class="simple-gallery">
+				<div class="controlls prev">
+					  <button> < </button>
+				</div>
+
+				<div class="controlls next">
+					  <button> > </button>
+				</div>
+
+				<div class="pager">
+					<ul>					</ul>
+	  </div>
+        
+        <h1>Заповядайте в нашата галерия!</h1>
+        <h2>Потопете се в света на моторите!
+          <br>
+          </br>
+        </h2>
+
+				<ul class="slides">
+					  <li class="skeleton"><img src="http://lorempixel.com/600/400/sports/1"></li>
+					  <li><img src="Images/1.jpg"></li>
+            <li><img src="Images/2.jpg"></li>
+            <li><img src="Images/3.jpg"></li>
+            <li><img src="Images/4.jpg"></li>
+            <li><img src="Images/5.jpg"></li>
+            <li><img src="Images/6.jpg"></li>
+            <li><img src="Images/7.jpg"></li>
+            <li><img src="Images/8.jpg"></li>
+            <li><img src="Images/9.jpg"></li>
+            <li><img src="Images/10.jpg"></li>
+				</ul>
+           
+			</div>
+		</div>
+</body>
+
+ <!--Java Script-->
+
+ <script>
+var SlidesList = function(){
+			var slides = [];
+			var activeSlideIndex = 0;
+
+			function addElement(element){
+				slides.push(element);
+			}
+
+			function next(){
+				slides[activeSlideIndex].className = '';
+				if(activeSlideIndex == (slides.length-1)){
+					activeSlideIndex = -1;
+				}
+				slides[++activeSlideIndex].className = 'active';
+			}
+
+			function prev(){
+				slides[activeSlideIndex].className = '';
+				if(activeSlideIndex <= 0){
+					activeSlideIndex = slides.length;
+				}
+				slides[--activeSlideIndex].className = 'active';
+			}
+
+			function showByIndex(index){
+				slides[activeSlideIndex].className = '';
+				activeSlideIndex = index;
+				slides[activeSlideIndex].className = 'active';
+			}
+
+			function lastItemIndex(){
+				return slides.length-1;
+			}
+
+			function getActiveItemIndex(){
+				return activeSlideIndex;
+			}
+
+			return {
+				addElement : addElement,
+				showPrev : prev,
+				showNext : next,
+				showOnPosition : showByIndex,
+				lastItemIndex : lastItemIndex,
+				getActiveItemIndex : getActiveItemIndex
+			}
+		}
+
+		var simpleGallery = function(domElement){
+			var element = domElement;
+			var slidesList = new SlidesList();
+			var pagerList = [];
+			var activePagerIndex = -1;
+
+			var buttonPrev = element.getElementsByClassName("prev")[0].getElementsByTagName("button")[0];
+			var buttonNext = element.getElementsByClassName("next")[0].getElementsByTagName("button")[0];
+			
+			buttonPrev.addEventListener('click',function(){
+				slidesList.showPrev();
+				updatePager();
+			})
+			buttonNext.addEventListener('click',function(){
+				slidesList.showNext();
+				updatePager();
+			})
+
+			function createPagerItemFor(index){
+
+				var pagerButton = document.createElement("button");
+					pagerButton.addEventListener('click',function(){
+						slidesList.showOnPosition(index);
+						updatePager();
+					})
+
+				var pagerElement = document.createElement("li");
+					pagerElement.appendChild(pagerButton);
+				pagerList.push(pagerElement);
+
+				var pagerListElem = element.getElementsByClassName("pager")[0].getElementsByTagName("ul")[0];
+					pagerListElem.appendChild(pagerElement)
+			}
+
+			
+			function updatePager(){
+				if(activePagerIndex < 0){
+					activePagerIndex = 0;
+					pagerList[activePagerIndex].className='active';
+				}
+				if(activePagerIndex != slidesList.getActiveItemIndex()){
+					pagerList[activePagerIndex].className='';
+					pagerList[slidesList.getActiveItemIndex()].className='active';
+					activePagerIndex = slidesList.getActiveItemIndex();
+				}
+			}
+
+
+			function init(){
+				var slides = element.getElementsByClassName("slides")[0].getElementsByTagName("li");
+				for(var i = 0; i < slides.length; i++){
+					if((slides[i].className).indexOf('skeleton') == -1){
+						slidesList.addElement(slides[i])
+						createPagerItemFor(slidesList.lastItemIndex())
+					}
+				}
+
+				slidesList.showOnPosition(0);
+				updatePager();
+			}
+
+			init();
+		}
+
+		var galleries = document.getElementsByClassName('simple-gallery');
+		for(var i=0; i<galleries.length;i++){
+			new simpleGallery(galleries[i])
+		}
+   </script>
+
+<!--FOOTER-->
+<footer>
+	<div class="splitter"></div>
+	<ul>
+		<li>
+			<i class="fas fa-globe-europe" style="font-size:100px;color:#999999"></i>
+			<div class="text">
+				<h4>За нас</h4>
+				<div>
+				  Ние сме млад и амбициозен екип с добри познания и дългогодишен опит с японските технологии.
+				Основната ни цел - да предоставяме свръх качествени продукти на известната марка на добри цени 
+				и най-важното - клиентът винаги да е доволен! SUZUKI е Way of Life!
+
+				  </div>
+			</div>
+		</li>
+		<li>
+			<i class="fas fa-clock" style="font-size:100px;color:#999999"></i>
+			<div class="text">
+				<h4>История</h4>
+				<div>Отне ни повече от 100 години, за да направим SUZUKI един от най-големите автомобилни производители в света. През годините компанията ни доказа своята стойност, като предложи иновативни технологии и качествени продукти, които направиха ежедневието на тези, които ни се доверяват много по-вълнуващо. 
+				</div>
+			</div>
+		</li>
+		<li>
+			<i class="fas fa-id-badge" style="font-size:100px;color:#999999"></i>
+			<div class="text">
+			  <h4>Контакти</h4>
+			  <div>Може да ни намерите на адрес: България, гр.София, бул. Витоша 91.
+				За поръчки и въпроси може да се свържете с нас като позвъните на долупосочения телефон: +359 88 888 8888 или изпозлвайте меню контакти за да ни изпратите писмо. Очакваме Ви! </br>
+			  </div>
+			</div>
+		</li>
+	</ul>
+  
+	<div class="bar">
+		<div class="bar-wrap">
+			<ul class="links">
+			  <li><a href="index.html"><i class="fa fa-home"></i> Начало</a> </li>
+			  <li><a href="about.html"><i class="fa fa-search"></i> За фирмата</a></li>
+			  <li><a href="contacts.html"><i class="fa fa-envelope"></i> Контакти</a></li>
+			</ul>
+  
+			<div class="social">
+				<a href="https://www.facebook.com/SuzukiCycles/" class="fb">
+					<span data-icon="f" class="icon"></span>
+					<span class="info">
+						<span class="follow">Нашата страница - Facebook</span>
+						<span class="num">2,150,000</span>
+					</span>
+				</a>
+  
+				<a href="https://twitter.com/suzukicycles" class="tw">
+					<span data-icon="T" class="icon"></span>
+					<span class="info">
+						<span class="follow">Последвай ни в Twitter</span>
+						<span class="num">70,000</span>
+					</span>
+				</a>
+  
+				<a href="https://www.instagram.com/suzukicycles/" class="rss">
+					<span data-icon="I" class="icon"></span>
+					<span class="info">
+						<span class="follow">Последвай ни в Instagram</span>
+						<span class="num">600,000</span>
+					</span>
+				</a>
+			</div>
+			<div class="clear"></div>
+			<div class="copyright">&copy;  2019 "Мотор" ООД Всички права запазени.</div>
+		</div>
+	</div>
+  </footer>
+  
+  
+
+	</body>
+</html>

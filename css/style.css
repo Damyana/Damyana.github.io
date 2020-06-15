@@ -1,0 +1,56 @@
+/*BG and LOGO*/
+#motor {
+	position: relative;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+	width: 30%;  
+  } 
+
+  body {
+	font-family: 'Cormorant Infant', serif;
+	background-repeat: no-repeat;
+	background-position: absolute;
+	background-size: 170%;
+}
+
+/*TEXT*/
+  h1 {
+	font-size: 38px;
+	text-align: center;
+	font-family: 'Cormorant Infant', serif;
+	text-transform: uppercase;
+	padding-bottom: 15px;
+	margin: -10px;
+	color: rgb(183, 23, 23);
+	background-color: black;
+  }
+  
+  p {
+	color: white;
+	text-indent: 50px;
+	font-size: 22px;
+	font-family: 'Cormorant Infant', serif;
+	text-align: center;
+	letter-spacing: 3px;
+	background-color: black;
+  }
+
+ /*STYLE VIDEO*/
+#myVideo {
+	position: relative;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+  }
+  
+
+img {
+  height: auto;
+  width: 100%;  
+}
+
+  
+ 
+  
